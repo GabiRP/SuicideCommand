@@ -11,7 +11,9 @@ namespace Suicide
     public class Config : IConfig
     {
         public bool IsEnabled { get; set; } = true;
+        [Description("If this is set to true, everyone can use the command. So the config below doesn't work")]
+        public bool Everyone { get; set; } = true;
         [Description("Roles that can use the command .suicide")]
-        public List<RoleType> Roles = new List<RoleType> { RoleType.ChaosInsurgency, RoleType.ClassD, RoleType.FacilityGuard, RoleType.NtfCadet, RoleType.NtfCommander , RoleType.NtfLieutenant, RoleType.Scientist};
+        public List<RoleType> Roles { get; set; } = new List<RoleType> { RoleType.ChaosInsurgency, RoleType.ClassD, RoleType.FacilityGuard, RoleType.NtfCadet, RoleType.NtfCommander, RoleType.NtfLieutenant, RoleType.Scientist };
     }
 }

@@ -14,14 +14,24 @@ namespace Suicide
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             Player p = Player.Get((CommandSender)sender);
-
+            if(p.Role == RoleType.None || p.Role == RoleType.Spectator)
+            {
+                response = "You can't suicide with this role";
+                return false;
+            }
+            if (Plugin.Singleton.Config.Everyone)
+            {
+                p.Role = RoleType.Spectator;
+                response = "Suiciding...";
+                return true;
+            }
             if (Plugin.Singleton.Config.Roles.Contains(p.Role))
             {
                 p.Role = RoleType.Spectator;
                 response = "Suiciding...";
                 return true;
             }
-            response = "You can't suicide";
+            response = "You can't suicide with this role";
             return false;
         }
 
