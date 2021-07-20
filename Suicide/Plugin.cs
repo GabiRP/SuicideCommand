@@ -11,7 +11,7 @@ namespace Suicide
     {
         public override string Name => "Suicide Command";
         public override string Author => "GabiRP";
-        public override Version Version => new Version(1,0,1);
+        public override Version Version => new Version(1,0,2);
         public static Plugin Singleton;
         public override void OnEnabled()
         {
