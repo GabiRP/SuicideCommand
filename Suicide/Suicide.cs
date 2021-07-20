@@ -19,15 +19,10 @@ namespace Suicide
                 response = "You can't suicide with this role";
                 return false;
             }
-            if (Plugin.Singleton.Config.Everyone)
+            
+            if (Plugin.Singleton.Config.Roles.Contains(p.Role) || Plugin.Singleton.Config.Everyone)
             {
-                p.Role = RoleType.Spectator;
-                response = "Suiciding...";
-                return true;
-            }
-            if (Plugin.Singleton.Config.Roles.Contains(p.Role))
-            {
-                p.Role = RoleType.Spectator;
+                p.Kill(DamageTypes.None);
                 response = "Suiciding...";
                 return true;
             }

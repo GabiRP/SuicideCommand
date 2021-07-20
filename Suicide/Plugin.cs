@@ -15,8 +15,8 @@ namespace Suicide
         public static Plugin Singleton;
         public override void OnEnabled()
         {
-            base.OnEnabled();
             Singleton = this;
+            base.OnEnabled();
         }
     }
 }
